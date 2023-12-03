@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Gallery app{% endblock title %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-2">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Kategoriyalar
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% for category in categories %}
+                            <a href="#"><li class="list-group-item">{{ category.name }}</li></a>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="row">
+                    {% for photo in photos %}
+                        <div class="col-md-4 mb-4 px-2"style="gap:20px; display:flex; flex-wrap:wrap;">
+                            <div class="card" style="width: 18rem;">
+                                <div class="image-container">
+                                    <img src="{{ photo.image.url }}" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ photo.title }}</h5>
+                                    <p class="card-text">{{ photo.description }}</p>
+                                    <a href="#" class="btn btn-primary">Batafsil</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display:flex; justify-content:center; width:100vw">
+            <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <span class="page-link">Previous</span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active">
+      <span class="page-link">
+        2
+      </span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+
+{% endblock content %}
